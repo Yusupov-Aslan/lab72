@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-CHOICES = [("new", "Новая"), ("approved", "Модерированная"), ]
+CHOICES = [("new", "Новая"), ("status", "Модерированная"), ]
 
 
 class Quote(models.Model):

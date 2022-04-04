@@ -16,7 +16,7 @@ class QuoteListAPIView(generics.ListAPIView):
     def get_queryset(self):
         if self.request.user.is_aunthenticated and self.request.user.is_staff:
             return Quote.objects.all()
-        return Quote.objects.filter(approved=True)
+        return Quote.objects.filter(status='approved')
 
 
 class QuoteCreateAPIView(generics.CreateAPIView):
@@ -32,7 +32,7 @@ class QuoteDetailAPIView(generics.RetrieveAPIView):
     def get_queryset(self):
         if self.request.user.is_aunthenticated and self.request.user.is_staff:
             return Quote.objects.all()
-        return Quote.objects.filter(approved=True)
+        return Quote.objects.filter(status='approved')
 
 
 class QuoteUpdateAPIView(generics.UpdateAPIView):
@@ -49,7 +49,7 @@ class QuoteDeleteAPIView(generics.DestroyAPIView):
 class QuoteRateAPIView(generics.UpdateAPIView):
     serializer_class = QuoteRateSerializer
     permission_classes = (permissions.AllowAny,)
-    queryset = Quote.objects.filter(approved=True)
+    queryset = Quote.objects.filter(status='approved')
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
