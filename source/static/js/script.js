@@ -15,11 +15,12 @@ function createQuote(e) {
     let url = e.target.action;
     let method = e.target.method;
     let data = new FormData(e.target);
-    let token = document.getElementById("csrf-token").value;
-    let headers = {'X-csrftoken': token}
+    let token = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    let headers = {'X-Csrftoken': token};
     fetch(url, {method: method, body: data, headers: headers})
         .then(res => res.json())
         .then(res => {
             console.log(res);
+            hideForm();
         });
 }

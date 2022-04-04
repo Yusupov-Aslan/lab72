@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Детали{% endblock %}
+{% block content %}
+    <div id="quotes-container">
+    <h3>Цитата</h3>
+        <div class="row">
+            <p>&quot;{{ quote.text }}&quot;</p>
+            <p>Пользователь: {{ quote.user_name }}</p>
+            <p>Дата добавления: {{ quote.created_at }}</p>
+            <p>Эл. почта: {{ quote.email }}</p>
+            <p>Рейтинг: {{ quote.rating }}</p>
+        </div>
+        <hr>
+    </div>
+{% endblock %}

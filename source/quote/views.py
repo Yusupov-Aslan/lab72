@@ -11,3 +11,10 @@ class IndexView(View):
         else:
             quotes = Quote.objects.filter(status='approved')
         return render(request, 'index.html', {'quotes': quotes})
+
+
+class QuoteDetailView(View):
+    def get(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        quote = Quote.objects.get(id=pk)
+        return render(request, "quote_detail.html", {"quote": quote})

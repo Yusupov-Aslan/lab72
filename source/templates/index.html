@@ -7,9 +7,8 @@
     {% for quote in quotes %}
         <div class="row">
             <p>&quot;{{ quote.text }}&quot;</p>
-            <p>Добавлено: {{ quote.user_name }}</p>
-            <p>Эл. почта: {{ quote.email }}</p>
             <p>Дата добавления: {{ quote.created_at }}</p>
+            <p>Ссылка: <a href="{% url 'quote:quote_detail_view' quote.pk %}">Детальный просмотр</a></p>
             <p>Рейтинг: {{ quote.rating }}</p>
         </div>
         <hr>
