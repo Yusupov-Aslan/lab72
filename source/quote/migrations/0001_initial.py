@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('user_name', models.CharField(max_length=256, verbose_name='Имя добавившего')),
                 ('email', models.EmailField(max_length=254, verbose_name='Эл. адрес')),
                 ('rating', models.PositiveIntegerField(default=0, verbose_name='Рейтинг')),
-                ('status', models.CharField(choices=[('new', 'Новая'), ('approved', 'Модерированная')], default='new', max_length=24, verbose_name='Статус')),
+                ('status', models.CharField(choices=[('new', 'Новая'), ('status', 'Модерированная')], default='new', max_length=24, verbose_name='Статус')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
             ],
         ),
